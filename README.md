@@ -1,4 +1,4 @@
-# @vue-vuplex/renderer
+# @doufuge/vuplex-renderer
 
 Web ↔ Vuplex IPC 通信库，面向 WebView（Renderer）侧。
 
@@ -6,22 +6,10 @@ Web ↔ Vuplex IPC 通信库，面向 WebView（Renderer）侧。
 
 ## 安装
 
-在 monorepo 中通过 workspace 引用：
-
-```json
-{
-  "dependencies": {
-    "@vue-vuplex/renderer": "*"
-  }
-}
-```
-
-独立安装（发布后）：
-
 ```bash
-yarn add @vue-vuplex/renderer
+yarn add @doufuge/vuplex-renderer
 # 或
-npm install @vue-vuplex/renderer
+npm install @doufuge/vuplex-renderer
 ```
 
 ## TypeScript 配置
@@ -29,7 +17,7 @@ npm install @vue-vuplex/renderer
 在项目的类型声明文件（如 `env.d.ts`）中引入 Vuplex 全局类型：
 
 ```typescript
-/// <reference types="@vue-vuplex/renderer/global" />
+/// <reference types="@doufuge/vuplex-renderer/global" />
 ```
 
 这将为 `window.vuplex` 提供完整的类型定义。
@@ -37,7 +25,7 @@ npm install @vue-vuplex/renderer
 ## 快速开始
 
 ```typescript
-import { ipc } from '@vue-vuplex/renderer'
+import { ipc } from '@doufuge/vuplex-renderer'
 
 // Web → Vuplex：请求-响应（默认 30s 超时）
 const version = await ipc.invoke<string>('app:getVersion')
@@ -101,7 +89,7 @@ interface IPCMessage<T = any> {
 ### 单例
 
 ```typescript
-import { ipc } from '@vue-vuplex/renderer'
+import { ipc } from '@doufuge/vuplex-renderer'
 ```
 
 默认导出全局单例，适用于大多数场景。
@@ -109,7 +97,7 @@ import { ipc } from '@vue-vuplex/renderer'
 ### 类
 
 ```typescript
-import { RendererIPC } from '@vue-vuplex/renderer'
+import { RendererIPC } from '@doufuge/vuplex-renderer'
 
 const customIpc = new RendererIPC()
 // 使用完毕后释放资源
@@ -133,7 +121,7 @@ customIpc.destroy()
 ### 常量
 
 ```typescript
-import { DEFAULT_INVOKE_TIMEOUT } from '@vue-vuplex/renderer'
+import { DEFAULT_INVOKE_TIMEOUT } from '@doufuge/vuplex-renderer'
 
 console.log(DEFAULT_INVOKE_TIMEOUT) // 30000
 ```
@@ -145,7 +133,7 @@ import type {
   IPCMessage,
   Listener,
   RequestHandler,
-} from '@vue-vuplex/renderer'
+} from '@doufuge/vuplex-renderer'
 ```
 
 ## 错误处理

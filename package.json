@@ -1,6 +1,6 @@
 {
-  "name": "@vue-vuplex/renderer",
-  "version": "0.1.1",
+  "name": "@doufuge/vuplex-renderer",
+  "version": "0.1.2",
   "description": "Web ↔ Vuplex IPC communication layer for renderer (WebView) side",
   "type": "module",
   "main": "./dist/index.js",
